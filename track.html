@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepLogic | Tracking</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #001f3f, #3a004f);
+      color: #fff;
+    }header, footer {
+  background: rgba(0, 31, 63, 0.9);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav a {
+  color: #66ccff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+nav a:hover {
+  color: #ff66cc;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #ff66cc;
+  margin-bottom: 2rem;
+}
+
+.info {
+  background: rgba(255,255,255,0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.badges {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.badge {
+  background: #66ccff;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+footer {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+.bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 31, 63, 0.95);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.75rem 0;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .bottom-nav a {
+        font-size: 1.2rem;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    
+    <nav class="top-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </nav>
+  </header>  <div class="container">
+      <h1>Progress Tracker</h1>
+      <br>
+    <h1>Tracking Your Growth</h1><div class="info">
+  <p><strong>Name:</strong> Mthokozisi Samukelo Mathebula</p>
+  <p><strong>Email:</strong> blacklogic@example.com</p>
+  <p><strong>Achievements:</strong></p>
+  <div class="badges">
+    <div class="badge">🔥 Creativity Master</div>
+    <div class="badge">📘 Mind Engineer</div>
+    <div class="badge">🧠 ADHD Expert</div>
+    <div class="badge">🕊️ Bible Visionary</div>
+  </div>
+</div>
+
+<canvas id="progressChart" height="150"></canvas>
+
+  </div>  <footer>
+    &copy; 2025 DeepLogic School. All rights reserved.
+  </footer>  <script>
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    const progressChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+        datasets: [{
+          label: 'Overall Progress (%)',
+          data: [10, 30, 50, 75, 90],
+          fill: false,
+          borderColor: '#00ff99',
+          backgroundColor: '#00ff99',
+          tension: 0.3
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+  </script>
+  <nav class="bottom-nav">
+    <a href="track.html"><i class="fas fa-chart-line"></i> Track</a>
+    <a href="dash.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="feedback.html"><i class="fas fa-comment-dots"></i> Feedback</a>
+</nav></body>
+</html>

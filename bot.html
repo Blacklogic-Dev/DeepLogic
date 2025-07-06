@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindLogic AI Chatbot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #001f3f, #3a004f);
+      color: #fff;
+    }
+    header {
+      background-color: rgba(0,0,0,0.8);
+      padding: 1rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #66ccff;
+    }
+    .logo {
+      width: 200px;
+      animation: bounce 2s infinite;
+      margin: 0 auto 10px;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #66ccff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff66cc;
+    }
+    .chat-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+    }
+    .welcome-input {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.7rem;
+      font-size: 1rem;
+      width: 80%;
+      border: 2px solid #ff66cc;
+      border-radius: 10px;
+      background-color: transparent;
+      color: #fff;
+      text-align: center;
+    }
+    .chat-box {
+      min-height: 300px;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .chat-message {
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      max-width: 80%;
+    }
+    .user-message {
+      background: #ff66cc;
+      color: white;
+      margin-left: auto;
+      text-align: right;
+    }
+    .bot-message {
+      background: #3399ff;
+      color: white;
+      text-align: left;
+    }
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .category-button, .suggestion-button {
+      background-color: #ff66cc;
+      border: none;
+      padding: 1rem;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .category-button:hover, .suggestion-button:hover {
+      background-color: #66ccff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+<nav class="top-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="#courses.html"><i class="fas fa-book"></i> Courses</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </nav>
+        <img class="logo" src="Bot.png" alt="Chatbot Logo">
+</header>
+  <div class="category-buttons" id="categoryButtons">
+    <button class="category-button" onclick="selectStyle('Biblical')">📖 Biblical Talk
+    <p style="text-align:center; color:#ffccff;">
+  📖 <strong>Biblical Talk</strong> dives into the spiritual world through faith, Scripture, and divine purpose. Perfect for exploring your relationship with God, understanding spiritual principles, and unlocking biblical wisdom.
+</p></button>
+    <button class="category-button" onclick="selectStyle('Psychology')">🧠 Psychology Talk
+    <p style="text-align:center; color:#99ffcc;">
+  🧠 <strong>Psychology Talk</strong> helps you understand your inner world — thoughts, emotions, trauma, healing, and mental discipline. A path to self-awareness and mental mastery through practical and spiritual insight.
+</p></button>
+    <button class="category-button" onclick="selectStyle('Biology')">🧬 Biology Talk<p style="text-align:center; color:#66ccff;">
+  🧬 <strong>Biology Talk</strong> uncovers how the body and brain connect — from neuron signals to hormones, stress, and sleep cycles. Science meets soul as we explore the human body in action.
+</p></button>
+  </div>
+
+
+<div class="chat-container">
+  <input id="usernameInput" class="welcome-input" type="text" placeholder="Type: Hello I'm [Your Name]" />
+  <div id="chatBox" class="chat-box">
+    <div class="chat-message bot-message">🤖 Please greet me to begin the conversation...</div>
+  </div>
+  <div class="category-buttons" id="suggestionButtons"></div>
+</div>
+
+<script>
+  const chatBox = document.getElementById("chatBox");
+  const suggestionBox = document.getElementById("suggestionButtons");
+  const usernameInput = document.getElementById("usernameInput");
+  let username = "";
+
+  const styles = {
+    Biblical: [
+      "What does it mean to be chosen by God?",
+      "Can you explain spiritual warfare?",
+      "What is divine purpose?",
+      "Does God still speak to us today?",
+      "What is the meaning of faith through suffering?",
+      "Why do some prayers go unanswered?",
+      "What are biblical signs of the end times?",
+      "Explain the role of the Holy Spirit.",
+      "Why was Job tested?",
+      "What is the armor of God?"
+    ],
+    Psychology: [
+      "What is self-awareness?",
+      "How to overcome overthinking?",
+      "Explain subconscious mind theory.",
+      "What is emotional intelligence?",
+      "How to build discipline in ADHD minds?",
+      "Can trauma shape personality?",
+      "What is the psychology of fear?",
+      "What is shadow work?",
+      "How do affirmations reprogram the mind?",
+      "What is deep focus and flow state?"
+    ],
+    Biology: [
+      "How do neurons communicate?",
+      "What is neuroplasticity?",
+      "What causes dopamine rush?",
+      "Explain sleep cycles in the brain.",
+      "What’s the science behind memory?",
+      "How does the gut affect the brain?",
+      "Explain circadian rhythm.",
+      "How does stress affect DNA?",
+      "What is fight or flight response?",
+      "How are emotions stored biologically?"
+    ]
+  };
+
+  const fullAnswers = {
+    // BIBLICAL
+    "What does it mean to be chosen by God?": () => `${username}, being chosen by God means you're called for a higher purpose. It’s about responsibility and divine alignment.`,
+    "Can you explain spiritual warfare?": () => `${username}, spiritual warfare is the battle between good and evil forces in the spiritual realm that affect our lives and faith.`,
+    "What is divine purpose?": () => `${username}, divine purpose is your God-given reason for existence — aligned with love, service, and growth.`,
+    "Does God still speak to us today?": () => `${username}, yes, God speaks through Scripture, people, dreams, and inner conviction when you're aligned with His spirit.`,
+    "What is the meaning of faith through suffering?": () => `${username}, faith through suffering means trusting God's plan even when life hurts — it's refining and building your character.`,
+    "Why do some prayers go unanswered?": () => `${username}, some prayers go unanswered because they might not align with God's will, timing, or what’s best for you.`,
+    "What are biblical signs of the end times?": () => `${username}, signs include wars, natural disasters, false prophets, and moral decay — as described in Matthew 24.`,
+    "Explain the role of the Holy Spirit.": () => `${username}, the Holy Spirit guides, comforts, convicts, and empowers believers with truth and divine gifts.`,
+    "Why was Job tested?": () => `${username}, Job was tested to prove that his faith was genuine — not based on blessings but on true devotion.`,
+    "What is the armor of God?": () => `${username}, the armor of God in Ephesians 6 includes faith, truth, righteousness, salvation, and the Word — protection against evil.`,
+
+    // PSYCHOLOGY
+    "What is self-awareness?": () => `${username}, self-awareness is recognizing your own emotions, thoughts, and behavior patterns objectively.`,
+    "How to overcome overthinking?": () => `${username}, overcoming overthinking involves mindfulness, reframing thoughts, deep breathing, and taking intentional action.`,
+    "Explain subconscious mind theory.": () => `${username}, the subconscious holds automatic beliefs and patterns — shaping habits, emotions, and decisions beneath awareness.`,
+    "What is emotional intelligence?": () => `${username}, emotional intelligence is the ability to understand, manage, and express your emotions while relating well to others.`,
+    "How to build discipline in ADHD minds?": () => `${username}, use structure, rewards, timers, routines, and break large tasks into smaller achievable steps.`,
+    "Can trauma shape personality?": () => `${username}, absolutely — trauma can alter personality traits, emotional regulation, and belief systems unless healed.`,
+    "What is the psychology of fear?": () => `${username}, fear activates the amygdala and triggers fight-or-flight; it's a survival instinct shaped by past experiences.`,
+    "What is shadow work?": () => `${username}, shadow work is exploring and healing repressed parts of yourself to grow emotionally and spiritually.`,
+    "How do affirmations reprogram the mind?": () => `${username}, affirmations overwrite limiting beliefs by repeated positive self-talk that influences the subconscious.`,
+    "What is deep focus and flow state?": () => `${username}, it's a mental state where you're fully immersed in a task, losing track of time and distractions.`,
+
+    // BIOLOGY
+    "How do neurons communicate?": () => `${username}, neurons use electrical impulses and neurotransmitters to send signals across synapses for body and brain function.`,
+    "What is neuroplasticity?": () => `${username}, neuroplasticity is the brain’s ability to reorganize itself by forming new neural connections through learning.`,
+    "What causes dopamine rush?": () => `${username}, dopamine rush is triggered by rewards, pleasure, or anticipation — like eating, praise, or goal achievement.`,
+    "Explain sleep cycles in the brain.": () => `${username}, your brain moves through REM and non-REM stages during sleep, restoring memory, focus, and healing.`,
+    "What’s the science behind memory?": () => `${username}, memory involves encoding, storing, and retrieving info — mainly through the hippocampus and cortex.`,
+    "How does the gut affect the brain?": () => `${username}, the gut-brain axis allows bacteria in your digestive system to influence mood, stress, and cognition.`,
+    "Explain circadian rhythm.": () => `${username}, it's your internal 24-hour body clock that regulates sleep, energy, and hormones — synced with light and dark.`,
+    "How does stress affect DNA?": () => `${username}, chronic stress can shorten telomeres — affecting cell aging, immunity, and increasing disease risk.`,
+    "What is fight or flight response?": () => `${username}, it’s a biological reaction where your body prepares to face danger or escape, releasing adrenaline.`,
+    "How are emotions stored biologically?": () => `${username}, emotions are encoded in neural networks and also impact organs like the heart and gut through hormones.`
+  };
+
+  function appendUser(message) {
+    const div = document.createElement("div");
+    div.className = "chat-message user-message";
+    div.innerHTML = message;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function appendBot(message) {
+    const div = document.createElement("div");
+    div.className = "chat-message bot-message";
+    div.innerHTML = message;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  usernameInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      const value = usernameInput.value.trim();
+      if (value.toLowerCase().startsWith("hello i'm")) {
+        username = value.substring(9).trim();
+        appendBot(`👋 Hello <strong>${username}</strong>`);
+        setTimeout(() => {
+          appendBot(`💡 I’m <strong>MindLogic</strong>, designed and developed by <strong>BlackLogic</strong>. Let's explore <em>mind, faith, and philosophy</em>. Choose a topic below to begin.`);
+          usernameInput.style.display = 'none';
+        }, 1000);
+      }
+    }
+  });
+
+  function selectStyle(style) {
+    suggestionBox.innerHTML = "";
+    if (!username) {
+      appendBot("👋 Please greet me first with 'Hello I'm [Your Name]' to unlock the conversation.");
+      return;
+    }
+
+    styles[style].forEach(q => {
+      const btn = document.createElement("button");
+      btn.className = "suggestion-button";
+      btn.textContent = q;
+      btn.onclick = () => {
+        appendUser(q);
+        setTimeout(() => {
+          const answerFunc = fullAnswers[q];
+          const response = answerFunc ? answerFunc() : `${username}, I'm still learning about this topic. Let's come back to it soon.`;
+          appendBot(response);
+        }, 1000);
+      };
+      suggestionBox.appendChild(btn);
+    });
+  }
+</script>
+
+</body>
+</html>

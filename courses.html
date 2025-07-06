@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLogic | Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #001f3f, #3a004f);
+            color: #fff;
+        }header {
+        background: rgba(0, 31, 63, 0.9);
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+        color: #66ccff;
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 1rem;
+    }
+
+    nav a:hover {
+        color: #ff66cc;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ff66cc;
+        margin-top: 2rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .course-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #66ccff;
+        border-radius: 10px;
+        padding: 1rem;
+        text-align: center;
+        transition: border-color 0.4s ease, color 0.4s ease;
+    }
+
+    .course-card:hover {
+        border-color: #ff66cc;
+        color: #ff66cc;
+    }
+
+    .course-card img {
+        width: 100%;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .course-title {
+        font-size: 1.3rem;
+        margin: 0.8rem 0 0.4rem;
+    }
+
+    .duration {
+        color: #ccc;
+        margin-bottom: 0.8rem;
+    }
+
+    .start-btn {
+        background: #66ccff;
+        color: #000;
+        padding: 0.5rem 1.2rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .start-btn:hover {
+        background: #ff66cc;
+        color: #fff;
+    }
+
+    .modules {
+        margin-top: 1rem;
+        text-align: left;
+        color: #cce6ff;
+    }
+
+    .progress-bar {
+        width: 100%;
+        background: #444;
+        border-radius: 5px;
+        overflow: hidden;
+        height: 10px;
+        margin-top: 0.5rem;
+    }
+
+    .progress {
+        height: 100%;
+        background: limegreen;
+        width: 0%;
+        transition: width 1s ease-in-out;
+    }
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 31, 63, 0.95);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.75rem 0;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .bottom-nav a {
+        font-size: 1.2rem;
+    }
+</style>
+
+</head>
+<body>
+    <header>
+          <nav class="top-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </nav>
+          
+    
+    </header>
+      <h1>DeepLogic Courses</h1>
+      <br>
+    <h1>Explore Courses</h1>
+<div class="grid">
+    <div class="course-card">
+        <img src="Creative.jpg" alt="Creativity">
+        <div class="course-title">Birth of Creativity</div>
+        <div class="duration">Duration: 20 min</div>
+        <div class="modules">
+            Modules: 2
+            <h5>Quiz : 5 quesitions</h5>
+            <div class="progress-bar"><div class="progress" style="width: 10%;"></div></div>
+        </div>
+        <button class="start-btn" onclick="location.href='module1.html'">Start</button>
+    </div>
+    </div>
+
+
+    <div class="course-card">
+        <img src="bible.jpg" alt="Bible Intelligence">
+        <div class="course-title">Bible Understanding Intelligence</div>
+        <div class="duration">Duration: 50 min</div>
+        <div class="modules">
+            Modules: 3
+            <h5>Quiz : 5 quesitions</h5>
+            <div class="progress-bar"><div class="progress" style="width: 20%;"></div></div>
+        </div>
+        <button class="start-btn" onclick="location.href='module2.html'">Start</button>
+    </div>
+
+    <div class="course-card">
+        <img src="adhd.jpg" alt="ADHD">
+        <div class="course-title">ADHD Deep Understanding</div>
+        <div class="duration">Duration: 15 min</div>
+        <div class="modules">
+            Modules: 3
+            <h5>Quiz : 5 quesitions</h5>
+            <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
+        </div>
+        <button class="start-btn" onclick="location.href='module3.html'">Start</button>
+    </div>
+
+    <div class="course-card">
+        <img src="Know.jpg" alt="Knowing & Unknowing">
+        <div class="course-title">Knowing vs Unknowing</div>
+        <div class="duration">Duration: 25 min</div>
+        <div class="modules">
+            Modules: 3
+            <h5>Quiz :5 quesitions</h5>
+            <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+        </div>
+        <button class="start-btn" onclick="location.href='module4.html'">Start</button>
+    </div>
+
+    <div class="course-card">
+        <img src ="Dream.jpg" alt="Dreaming">
+        <div class="course-title">Dreams & Memory Patterns</div>
+        <div class="duration">Duration: 40 min</div>
+        <div class="modules">
+            Modules: 4
+            <h5>Quiz : 8 quesitions</h5>
+            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+        </div>
+        <button class="start-btn" onclick="location.href='module5.html'">Start</button>
+    </div>
+
+    <div class="course-card">
+        <img src="techbrain.jpg" alt="Mind Engineering">
+        <div class="course-title">Mind Engineering</div>
+        <div class="duration">Duration: 1hr</div>
+        <button class="start-btn" onclick="location.href='module6.html'">Start</button>
+        <div class="modules">
+            Modules: 8<h5>Quiz : 10 questions</h5>
+            <h5></h5>
+            <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
+        </div>
+        
+    </div>
+</div>
+<nav class="bottom-nav">
+    <a href="#track"><i class="fas fa-chart-line"></i> Track</a>
+    <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="#feedback"><i class="fas fa-comment-dots"></i> Feedback</a>
+</nav>
+</body>
+</html>

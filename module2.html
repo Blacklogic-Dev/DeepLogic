@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DeepLogic | Bible Intelligence</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #001f3f, #3a004f);
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0, 31, 63, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: #66ccff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 1rem;
+    }
+
+    nav a:hover {
+      color: #ff66cc;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #ff66cc;
+    }
+
+    .module-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #66ccff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 2rem 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .module-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .quiz-question {
+      margin: 2rem 0 1rem;
+    }
+
+    .quiz-option {
+      background: rgba(255,255,255,0.1);
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .quiz-option.correct {
+      background: #28a745 !important;
+    }
+
+    .quiz-option.wrong {
+      background: #dc3545 !important;
+    }
+
+    #progressContainer {
+      background: #ccc;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background: #28a745;
+      transition: width 0.4s ease;
+    }
+
+    #scoreDisplay {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    #certificate {
+      text-align: center;
+      margin-top: 2rem;
+      display: none;
+    }
+
+    #certificate img {
+      width: 300px;
+      border: 4px solid #fff;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .grid-reward {
+      margin-top: 2rem;
+      text-align: center;
+      background: #003300;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px lime;
+      display: none;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      background: #00cc66;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      box-shadow: 0 0 5px #00ff88;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Bible Intelligence Course</h1>
+
+    <div class="module-card">
+      <h3>Module 1: The Bible is a Living Testimony</h3>
+      <p>The Bible is not just history — it's a living testimony of God’s nature and human redemption. It speaks spiritual truth into every generation and teaches us about our own journey.</p>
+    </div>
+
+    <div class="module-card">
+      <h3>Module 2: You Are a Bible Character</h3>
+      <p>Your life continues the divine script. Like David or Ruth, your decisions and struggles are part of God's story. Understanding this awakens spiritual identity and purpose.</p>
+    </div>
+
+    <div class="module-card">
+      <h3>Module 3: The Bible is a Life Study Guide</h3>
+      <p>Proverbs teaches wisdom. Psalms brings emotional healing. Ecclesiastes explains life’s reality. The Bible isn't just religious — it's a blueprint for personal and spiritual growth.</p>
+    </div>
+
+    <h2>Quiz: Bible Intelligence</h2>
+
+    <div class="quiz-question">
+      <p>1. Why is the Bible called a living testimony?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because it speaks to every generation with spiritual relevance</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because it's only a historical record</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because it's written in Hebrew</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>2. What does it mean to be a Bible character?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Your life reflects an active role in God's ongoing story</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">You play in Bible movies</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">You memorize Bible verses only</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>3. What does Proverbs primarily teach?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Life skills and wise decisions</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">War and judgment</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Fashion sense</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>4. What should Bible intelligence produce?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Practical application and life mastery</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A religious routine</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Just quoting verses</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>5. How can Psalms help?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">By healing emotional wounds</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">By predicting the weather</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">By replacing therapy completely</div>
+    </div>
+
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <h2 id="scoreDisplay"></h2>
+
+    <div id="certificate">
+
+      <button onclick="downloadCertificate()">Congratulations</button>
+    </div>
+
+    <div class="grid-reward" id="badgeGrid">
+      <h2>🎖️ Bible-Based Role Unlocked</h2>
+      <div class="badge-grid">
+        <div class="badge">📖 Bible Scholar</div>
+        <div class="badge">🕊️ Spiritual Life Coach</div>
+        <div class="badge">⛪ Faith Leader</div>
+        <div class="badge">🗣️ Gospel Motivator</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let correctAnswers = 0;
+    let totalAnswered = 0;
+    const totalQuestions = 5;
+
+    function checkAnswer(element, isCorrect) {
+      if (element.classList.contains('correct') || element.classList.contains('wrong')) return;
+
+      if (isCorrect) {
+        element.classList.add('correct');
+        correctAnswers++;
+      } else {
+        element.classList.add('wrong');
+      }
+
+      totalAnswered++;
+
+      const progress = (totalAnswered / totalQuestions) * 100;
+      document.getElementById("progressBar").style.width = progress + "%";
+
+      if (totalAnswered === totalQuestions) {
+        const percent = (correctAnswers / totalQuestions) * 100;
+        document.getElementById("scoreDisplay").innerText = `You scored ${correctAnswers}/5 (${percent}%)`;
+
+        if (percent >= 80) {
+          document.getElementById("certificate").style.display = "block";
+          document.getElementById("badgeGrid").style.display = "block";
+          document.getElementById("badgeGrid").scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+
+    function downloadCertificate() {
+      alert("Certificate Downloaded! (Simulated)");
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.module-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>

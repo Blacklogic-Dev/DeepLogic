@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DeepLogic | Mind Engineering</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #001f3f, #3a004f);
+      color: #fff;
+    }
+    header {
+      background: rgba(0, 31, 63, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a {
+      color: #66ccff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 1rem;
+    }
+    nav a:hover {
+      color: #ff66cc;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #ff66cc;
+    }
+    .module-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #66ccff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 2rem 0;
+    }
+    .quiz-question {
+      margin: 2rem 0 1rem;
+    }
+    .quiz-option {
+      background: rgba(255,255,255,0.1);
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .quiz-option.correct {
+      background: #28a745 !important;
+    }
+    .quiz-option.wrong {
+      background: #dc3545 !important;
+    }
+    .progress-bar {
+      height: 25px;
+      width: 100%;
+      background-color: #444;
+      border-radius: 20px;
+      margin: 30px 0;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      width: 0%;
+      background-color: limegreen;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      line-height: 25px;
+    }
+    
+    .badge-container {
+      text-align: center;
+      background-color: #004d40;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 12px;
+      display: none;
+    }
+    .badge-container h3 {
+      color: #0f0;
+      font-size: 1.5rem;
+    }
+    .badge-container span {
+      font-size: 2rem;
+    }
+    .fail-message {
+      color: red;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body><header>
+  <nav class="top-nav">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  </nav>
+</header><div class="container">
+  <h1>DeepLogic | Mind Engineering</h1>  <!-- Modules -->  <div class="module-card">
+    <h3>Module 1: What Is Mind Engineering?</h3>
+    <p>Mind engineering is the art of training, directing, and reshaping your thought systems. It’s the science of intentional thinking.</p>
+    <p>Through deliberate practice, you begin building the ability to construct mental habits that align with personal goals and vision.</p>
+  </div>
+  <div class="module-card">
+    <h3>Module 2: Systematic Thinking</h3>
+    <p>Systematic thinking trains your mind to follow order, build mental steps, and avoid jumping to premature conclusions.</p>
+    <p>This skill turns your creativity into structure, helping you construct scalable plans and processes that don't collapse under stress.</p>
+  </div>
+  <div class="module-card">
+    <h3>Module 3: Power of Questions</h3>
+    <p>Asking powerful questions forces the brain to expand its neural networks, unlocking creativity and clarity.</p>
+    <p>Mind engineers learn to design questions that challenge assumptions and spark innovation from within.</p>
+  </div>
+  <div class="module-card">
+    <h3>Module 4: Repetition & Memory</h3>
+    <p>Every thought repeated enough times becomes easier, faster, and stronger — forming what we call thought memory.</p>
+    <p>When repeated thoughts are positive and constructive, they build your reality and reinforce your identity.</p>
+  </div>
+  <div class="module-card">
+    <h3>Module 5: Emotional Engineering</h3>
+    <p>Mastering emotions isn’t about suppressing them, but learning to channel emotional energy toward growth and productivity.</p>
+    <p>With time, you gain emotional control that helps you remain centered under pressure.</p>
+  </div>
+  <div class="module-card">
+    <h3>Module 6: Idea to Execution</h3>
+    <p>Dreams without execution lead to frustration. This module trains you to transform ideas into blueprints and action steps.</p>
+    <p>Disciplined thinking meets structured implementation — the formula for innovation.</p>
+  </div>
+  <div class="module-card">
+    <h3>Module 7: Adaptive Intelligence</h3>
+    <p>The most powerful minds are adaptive. When things change, they upgrade — not break down.</p>
+    <p>Adaptive intelligence is your ability to learn, unlearn, and relearn in real-time.</p>
+  </div>
+  <div class="module-card">
+    <h3>Module 8: Purpose Engineering</h3>
+    <p>This is the highest form of mind design: connecting every thought to your life's mission and vision.</p>
+    <p>Purpose engineers build habits, environments, and decisions that serve a higher calling.</p>
+  </div>  <!-- Progress Bar -->  <div class="progress-bar"><div id="progress" class="progress">0%</div></div>  <h2>Quiz: Mastering the Mind</h2>
+
+  <!-- Quiz Questions -->
+  <div id="quizArea">
+    <div class="quiz-question"><p>1. What does mind engineering help with?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Shaping thought systems</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Mind maps only</div>
+    </div>
+
+    <div class="quiz-question"><p>2. Repetition helps by:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Strengthening mental patterns</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Deleting memory</div>
+    </div>
+
+    <div class="quiz-question"><p>3. Systematic thinking builds:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Mental structure</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Randomness</div>
+    </div>
+
+    <div class="quiz-question"><p>4. Asking better questions leads to:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">New thought paths</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Less memory</div>
+    </div>
+
+    <div class="quiz-question"><p>5. Emotional intelligence means:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Controlled awareness</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Ignoring emotions</div>
+    </div>
+
+    <div class="quiz-question"><p>6. Adaptive thinking is:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Mindset upgrade</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Fear of change</div>
+    </div>
+
+    <div class="quiz-question"><p>7. Mind engineers...</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Act on ideas</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Only dream</div>
+    </div>
+
+    <div class="quiz-question"><p>8. Purpose engineering is about:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Aligning thoughts to mission</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Copying others</div>
+    </div>
+
+    <div class="quiz-question"><p>9. Deep identity forms through:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Repeated thoughts</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Random behavior</div>
+    </div>
+
+    <div class="quiz-question"><p>10. Highest level of mind engineering is:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Purpose-driven life</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Dreamless sleep</div>
+    </div>
+  </div>
+
+  <!-- Score and Badge -->
+  <h2 id="scoreDisplay"></h2>
+  <div class="badge-container" id="badgeContainer">
+    <h3>🎉 Congrats! You've earned:</h3>
+    <span>🧠 Mind Mastery Badge</span>
+  </div>
+  <div id="failMessage" class="fail-message">❌ Oops! You scored below 70%. Try again.</div>
+</div>
+
+<script>
+  let correctAnswers = 0;
+  let totalAnswered = 0;
+
+  function checkAnswer(el, isCorrect) {
+    if (el.classList.contains('correct') || el.classList.contains('wrong')) return;
+
+    if (isCorrect) {
+      el.classList.add('correct');
+      correctAnswers++;
+    } else {
+      el.classList.add('wrong');
+    }
+
+    totalAnswered++;
+    let percent = Math.floor((correctAnswers / 10) * 100);
+    document.getElementById("progress").style.width = percent + "%";
+    document.getElementById("progress").textContent = percent + "%";
+
+    if (totalAnswered === 10) {
+      document.getElementById("scoreDisplay").textContent = `You scored ${correctAnswers}/10 (${percent}%)`;
+      if (percent >= 70) {
+        document.getElementById("badgeContainer").style.display = "block";
+      } else {
+        document.getElementById("failMessage").style.display = "block";
+      }
+    }
+  }
+</script>
+
+</div></body>
+</html>

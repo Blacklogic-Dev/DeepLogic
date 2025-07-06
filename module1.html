@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DeepLogic | Birth of Creativity</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #001f3f, #3a004f);
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0, 31, 63, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: #66ccff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 1rem;
+    }
+
+    nav a:hover {
+      color: #ff66cc;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #ff66cc;
+    }
+
+    .module-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #66ccff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 2rem 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .module-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .quiz-question {
+      margin: 2rem 0 1rem;
+    }
+
+    .quiz-option {
+      background: rgba(255,255,255,0.1);
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .quiz-option.correct {
+      background: #28a745 !important;
+    }
+
+    .quiz-option.wrong {
+      background: #dc3545 !important;
+    }
+
+    #certificate {
+      text-align: center;
+      margin-top: 2rem;
+      display: none;
+    }
+
+    #certificate img {
+      width: 300px;
+      border: 4px solid #fff;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    #badge {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      padding: 0.6rem 1.2rem;
+      display: inline-block;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid #fff;
+      color: #66ffcc;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      background: #66ccff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff66cc;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>The Birth of Creativity</h1>
+
+    <div class="module-card">
+      <h3>Module 1: What is Creativity?</h3>
+      <p>Creativity is the fusion between the known and unknown. The known stores memory, logic, and structure. The unknown holds imagination, questions, and possibility. When these parts of the brain connect, innovation is born. ADHD minds often combine these rapidly — giving birth to brilliant, fast ideas.</p>
+    </div>
+
+    <div class="module-card">
+      <h3>Module 2: Expressing Creativity</h3>
+      <p>Creative energy needs a voice. Like HTML gives structure, and CSS and JS give beauty and interaction — ideas need to be shared. Don’t just dream. Build, show, and reshape your creations. Every version gets you closer to unlocking your genius.</p>
+    </div>
+
+    <h2>Quiz: Test Your Creativity Knowledge</h2>
+
+    <div class="quiz-question">
+      <p>1. What makes creativity possible?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">The fusion of known and unknown brain power</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Only learned skills</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Only dreams</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>2. What role does ADHD play in creativity?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">It increases rapid idea generation and discovery</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">It reduces creative thinking</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">It causes forgetfulness only</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>3. An idea is like...</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A finished song</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A baby that must be expressed and shaped</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A locked thought</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>4. What does the 'unknown mind' represent?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Imagination, curiosity, future thinking</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Past regrets only</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Negative emotions</div>
+    </div>
+
+    <div class="quiz-question">
+      <p>5. How do you master creativity?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">By expressing and reshaping your ideas</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">By hiding your thoughts</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">By copying others</div>
+    </div>
+
+    <h2 id="scoreDisplay"></h2>
+    <div id="badge"></div>
+
+    <div id="certificate">
+
+      <button onclick="downloadCertificate()">Download Certificate</button>
+    </div>
+  </div>
+
+  <script>
+    let correctAnswers = 0;
+    let totalAnswered = 0;
+
+    function checkAnswer(element, isCorrect) {
+      if (element.classList.contains('correct') || element.classList.contains('wrong')) return;
+
+      if (isCorrect) {
+        element.classList.add('correct');
+        correctAnswers++;
+      } else {
+        element.classList.add('wrong');
+      }
+
+      totalAnswered++;
+
+      if (totalAnswered === 5) {
+        let percent = (correctAnswers / 5) * 100;
+        document.getElementById("scoreDisplay").innerText = `You scored ${correctAnswers}/5 (${percent}%)`;
+
+        let badgeText = "";
+        if (percent === 100) {
+          badgeText = "🧠 Creative Genius";
+        } else if (percent >= 80) {
+          badgeText = "🎨 Creative Master";
+        } else if (percent >= 60) {
+          badgeText = "💡 Creative Thinker";
+        } else {
+          badgeText = "🔍 Creative Explorer";
+        }
+
+        document.getElementById("badge").innerText = `🏅 Your Badge: ${badgeText}`;
+
+        if (percent >= 80) {
+          document.getElementById("certificate").style.display = "block";
+          document.getElementById("certificate").scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+
+    function downloadCertificate() {
+      alert("Certificate Downloaded! (Simulated)");
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.module-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepLogic | Feedback</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #001f3f, #3a004f);
+      color: #fff;
+      text-align: center;
+    }header, footer {
+  background: rgba(0, 31, 63, 0.9);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav a {
+  color: #66ccff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+nav a:hover {
+  color: #ff66cc;
+}
+
+h1 {
+  margin-top: 2rem;
+  color: #ff66cc;
+}
+
+.stars {
+  font-size: 2rem;
+  margin: 2rem auto 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.stars i {
+  color: #66ccff;
+  transition: color 0.3s ease;
+}
+
+.stars i.active {
+  color: #ff66cc;
+}
+
+.emoji {
+  font-size: 3rem;
+  margin: 1rem;
+  transition: transform 0.3s ease;
+}
+.bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 31, 63, 0.95);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.75rem 0;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .bottom-nav a {
+        font-size: 1.2rem;
+    }
+
+footer {
+  font-size: 0.9rem;
+  color: #aaa;
+  justify-content: center;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </nav>
+  </header> 
+  <h1>DeepLogic Feedback</h1>
+    <h1>How was your experience?</h1>  <div class="stars" id="starContainer">
+    <i class="fa-regular fa-star" data-value="1"></i>
+    <i class="fa-regular fa-star" data-value="2"></i>
+    <i class="fa-regular fa-star" data-value="3"></i>
+    <i class="fa-regular fa-star" data-value="4"></i>
+    <i class="fa-regular fa-star" data-value="5"></i>
+  </div>  <div class="emoji" id="emoji">🙂</div>  <footer>
+    &copy; 2025 DeepLogic School. All rights reserved.
+  </footer>  <script>
+    const stars = document.querySelectorAll(".stars i");
+    const emoji = document.getElementById("emoji");
+    const reactions = ['😡','😞','😐','😊','🤩'];
+
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        let val = parseInt(star.getAttribute("data-value"));
+        emoji.textContent = reactions[val - 1];
+
+        stars.forEach(s => {
+          s.classList.remove("active");
+          if (parseInt(s.getAttribute("data-value")) <= val) {
+            s.classList.add("active");
+          }
+        });
+      });
+    });
+  </script>
+  <nav class="bottom-nav">
+    <a href="track.html"><i class="fas fa-chart-line"></i> Track</a>
+    <a href="dash.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="feedback.html"><i class="fas fa-comment-dots"></i> Feedback</a>
+</nav></body>
+</html>

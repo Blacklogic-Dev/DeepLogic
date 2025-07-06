@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLogic | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #001f3f, #3a004f);
+            color: #fff;
+        }header {
+        background: rgba(0, 31, 63, 0.9);
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+        width: 250px;
+        height: auto;
+        animation: fadeInOut 4s infinite;
+    }
+
+    @keyframes fadeInOut {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+    }
+
+    nav.top-nav, nav.bottom-nav {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: #66ccff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    nav a:hover {
+        color: #ff66cc;
+    }
+
+    .hero {
+        padding: 4rem 2rem;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        color: #ff66cc;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+        color: #cce6ff;
+        max-width: 700px;
+        margin: 1rem auto;
+    }
+
+    .get-started-btn {
+        margin-top: 2rem;
+        padding: 0.8rem 2rem;
+        background: #ff66cc;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .get-started-btn:hover {
+        background: #cc3399;
+    }
+
+    .description-toggle {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+        transition: color 0.5s ease;
+    }
+
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 31, 63, 0.95);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.75rem 0;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .bottom-nav a {
+        font-size: 1.2rem;
+    }
+
+    footer {
+        background: #000;
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #aaa;
+    }
+</style>
+
+</head>
+<body>
+    <header>
+        
+        <nav class="top-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </nav>
+        
+
+    </header><section class="hero" id="home">
+      <img src="Deep.png" class="logo" alt="DeepLogic Logo">
+    <h1>Welcome to DeepLogic</h1>
+    <p>A school built for intelligent minds. Learn mind engineering, creativity philosophy, ADHD mastery, and biblical intelligence — all in one powerful platform.</p>
+    <h3>Discover MindLogic a smart chatbot designed to help you answer ,explore curiosity and more! </h3>
+<button class="get-started-btn" onclick="location.href='bot.html'">Start Chat</button>
+    <p class="description-toggle" id="descToggle" onclick="toggleDescriptionColor()">Click here to reveal your mind's true colors</p>
+</section>
+
+<nav class="bottom-nav">
+    <a href="track.html"><i class="fas fa-chart-line"></i> Track</a>
+    <a href="dash.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="feedback.html"><i class="fas fa-comment-dots"></i> Feedback</a>
+</nav>
+
+<footer>
+    &copy; 2025 DeepLogic School of Intelligence Minds. All rights reserved.
+</footer>
+
+<script>
+    let toggle = false;
+    function toggleDescriptionColor() {
+        const desc = document.getElementById("descToggle");
+        desc.style.color = toggle ? '#66ccff' : '#ff66cc';
+        toggle = !toggle;
+    }
+</script>
+
+</body>
+</html>

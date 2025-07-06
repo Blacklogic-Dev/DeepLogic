@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepLogic | Dreams & Memory Patterns</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #001f3f, #3a004f);
+      color: #fff;
+    }
+    header {
+      background: rgba(0, 31, 63, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a {
+      color: #66ccff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 1rem;
+    }
+    nav a:hover {
+      color: #ff66cc;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #ff66cc;
+    }
+    .module-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #66ccff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 2rem 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .module-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .quiz-question {
+      margin: 2rem 0 1rem;
+    }
+    .quiz-option {
+      background: rgba(255,255,255,0.1);
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .quiz-option.correct {
+      background: #28a745 !important;
+    }
+    .quiz-option.wrong {
+      background: #dc3545 !important;
+    }
+    .badge-container {
+      text-align: center;
+      margin-top: 2rem;
+      display: none;
+    }
+    .badge-container span {
+      display: block;
+      color: lime;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .try-again {
+      text-align: center;
+      color: orange;
+      font-size: 1.2rem;
+      display: none;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Dreams & Memory Patterns</h1><div class="module-card">
+  <h3>Module 1: The Purpose of Dreams</h3>
+  <p>Dreams are a representation of the mind’s internal processing system. They’re how your brain explores ideas, emotions, and memories in abstract form.</p>
+  <p>As you sleep, your conscious defenses lower, allowing the subconscious to visualize stored data freely.</p>
+</div>
+
+<div class="module-card">
+  <h3>Module 2: Memory Activation Patterns</h3>
+  <p>Your brain never forgets — it stores information deep. Dreams re-activate these memory layers.</p>
+  <p>Even memories you thought were lost resurface through symbols and patterns during dreams.</p>
+</div>
+
+<div class="module-card">
+  <h3>Module 3: Emotional Memory Encoding</h3>
+  <p>Emotional moments are encoded stronger. During dreams, these replay to help you cope or prepare.</p>
+  <p>Think of it as night-time therapy crafted by your own brain.</p>
+</div>
+
+<div class="module-card">
+  <h3>Module 4: Dreams as Creativity Engines</h3>
+  <p>Dreams show your ability to create something from nothing by fusing random thoughts into scenes.</p>
+  <p>The more patterns you store, the more creative your dreaming becomes.</p>
+</div>
+
+<h2>Quiz: Dream & Memory Fusion</h2>
+
+<div class="quiz-question">
+  <p>1. Why do we dream according to brain science?</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">To process emotions, ideas, and memory</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">To predict the weather</div>
+</div>
+
+<div class="quiz-question">
+  <p>2. What is true about deep memories?</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">They can be reactivated in dreams</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">They are deleted</div>
+</div>
+
+<div class="quiz-question">
+  <p>3. Why are emotional dreams stronger?</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">Emotion strengthens memory encoding</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">They’re longer</div>
+</div>
+
+<div class="quiz-question">
+  <p>4. Dreams help emotionally by:</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">Healing and preparing the mind</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">Confusing logic</div>
+</div>
+
+<div class="quiz-question">
+  <p>5. Random dreams represent:</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">Creative fusion of patterns</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">Confusion from bad food</div>
+</div>
+
+<div class="quiz-question">
+  <p>6. Fear dreams help by:</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">Building resilience and survival</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">Shutting brain down</div>
+</div>
+
+<div class="quiz-question">
+  <p>7. Dream creativity is:</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">Unlimited and visual-based</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">Always logical</div>
+</div>
+
+<div class="quiz-question">
+  <p>8. What increases dream creativity?</p>
+  <div class="quiz-option" onclick="checkAnswer(this, true)">More stored patterns</div>
+  <div class="quiz-option" onclick="checkAnswer(this, false)">Watching more TV</div>
+</div>
+
+<h2 id="scoreDisplay"></h2>
+<div class="badge-container" id="badgeContainer">
+  <span>🏆 Badge Unlocked: Dream Master</span>
+</div>
+<div class="try-again" id="tryAgain">😓 Oops, try again and aim for 70%!</div>
+
+  </div>  <script>
+    let correctAnswers = 0;
+    let totalAnswered = 0;
+
+    function checkAnswer(element, isCorrect) {
+      if (element.classList.contains('correct') || element.classList.contains('wrong')) return;
+
+      if (isCorrect) {
+        element.classList.add('correct');
+        correctAnswers++;
+      } else {
+        element.classList.add('wrong');
+      }
+
+      totalAnswered++;
+
+      if (totalAnswered === 8) {
+        const percent = (correctAnswers / 8) * 100;
+        document.getElementById("scoreDisplay").innerText = `You scored ${correctAnswers}/8 (${percent.toFixed(1)}%)`;
+
+        if (percent >= 70) {
+          document.getElementById("badgeContainer").style.display = "block";
+        } else {
+          document.getElementById("tryAgain").style.display = "block";
+        }
+      }
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.module-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script></body>
+</html>
